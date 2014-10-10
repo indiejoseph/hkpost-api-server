@@ -2,7 +2,7 @@
 
 config =
   cache:
-    maxAge: 24 * 60 * 60 * 1000 # 24 hours
+    maxAge: 12 * 60 * 60 * 1000 # 12 hours
 
   hkpost:
     overseaRate: 'http://app1.hongkongpost.hk/calc/eng/overseas/step2.php'
