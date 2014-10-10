@@ -1,0 +1,14 @@
+{
+  "development": {
+    "storage": "db/hkpost_dev.sqlite",
+    "dialect": "sqlite"
+  },
+  "test": {
+    "storage": "db/hkpost_test.sqlite",
+    "dialect": "mysql"
+  },
+  "production": {
+    "storage": "db/hkpost.sqlite",
+    "dialect": "mysql"
+  }
+}
