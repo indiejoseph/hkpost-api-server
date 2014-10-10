@@ -1,1 +1,10 @@
+# Development
 
+### Preparing
+  $npm install
+
+### Initial sqlite
+  $gulp db:migrate
+
+### seeding
+  $gulp db:seeding

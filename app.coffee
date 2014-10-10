@@ -1,7 +1,6 @@
 'use strict'
 
 express    = require 'express'
-models     = require './models'
 config     = require './config'
 app        = express()
 bodyParser = require 'body-parser'
@@ -17,16 +16,9 @@ app.get '/', (req, res) ->
 
 app.use '/', apiRouter
 
-mongoose.connect config.mongodb.connect
-mongoose.set 'debug', no
-mongoose.connection.on 'error', ->
-  util.error 'connection error'.red, arguments
+# Binding express
+app.listen port
 
-mongoose.connection.on 'open', (ref) ->
-  # Binding express
-  app.listen port
+console.log "Listening on port #{ port }"
 
-  console.log "Listening on port #{ port }"
-
-if module.parent?
-  module.exports = app
+module.exports = app
