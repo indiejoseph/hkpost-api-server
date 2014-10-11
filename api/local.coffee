@@ -10,16 +10,12 @@ cache   = LRU { maxAge: config.cache.maxAge }
 #routes
 router.route('/oversea_rate')
   .get (req, res, next) ->
-    # mail = ['letter_postcard', 'printed_papers', 'small_packet', 'parcel']
+    # mail = ['letter_postcard', 'parcel']
     weight = req.query.weight
-    dest = req.query.dest
     mail = req.query.mail
 
     # validation
     errors = []
-
-    unless dest
-      errors.push 'Please select destination.'
 
     unless mail
       errors.push 'Please select mail type.'
@@ -62,13 +58,11 @@ router.route('/oversea_rate')
       $ = cheerio.load html
 
       selectors = [
+        'rate'
         's_rate'
-        'a_rate'
-        'spt_rate'
-        'm05_rate'
-        'm10_rate'
-        'm20_rate'
-        'm30_rate'
+        'c_rate'
+        'smart_rate'
+        'smart_rate1'
       ]
 
       for selector in selectors
