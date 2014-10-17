@@ -9,6 +9,28 @@ TODO
 -----------------
 
 ##### 國際郵件 International Mail
+**GET /api/v1/local**
+
+##### Parameters
+
+`weight` - *Interger* | *Required*
+
+eg: 20kg is "weight=2000"
+
+Local mail: must be below 30kg
+
+*****
+
+`mail` - *String* | *Required*
+
+| Name                          | Parameters      |
+|-------------------------------|-----------------|
+| Letter or Postcard 信件或明信片 | letter_postcard |
+| Parcel 包裹                    | parcel          |
+
+*****
+
+##### 國際郵件 International Mail
 **GET /api/v1/oversea_rate**
 
 ##### Parameters
@@ -23,7 +45,7 @@ Normal mail: must be below 20kg, Speedpost: must be below 30kg
 
 `mail` - *String* | *Required*
 
-| Name                          | Values          |
+| Name                          | Parameters      |
 |-------------------------------|-----------------|
 | Letter or Postcard 信件或明信片  | letter_postcard |
 | Printed Paper 印刷品（雜誌及書籍）| printed_papers  |
@@ -303,6 +325,5 @@ TODO
 ----
 
 - Postage rate 郵費
-  - Local 本地
   - Bulk 大量
 - Mail tracking 郵件追查

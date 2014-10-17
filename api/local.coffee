@@ -8,7 +8,7 @@ cheerio = require 'cheerio'
 cache   = LRU { maxAge: config.cache.maxAge }
 
 #routes
-router.route('/oversea_rate')
+router.route('/local')
   .get (req, res, next) ->
     # mail = ['letter_postcard', 'parcel']
     weight = req.query.weight
@@ -26,7 +26,7 @@ router.route('/oversea_rate')
     if errors.length
       return res.status(500).json { errors: errors }
 
-    key = "mail:#{ mail }dest:#{ dest },weight:#{ weight }"
+    key = "mail:#{ mail },weight:#{ weight }"
 
     # check cache
     if cache.has key
@@ -38,7 +38,6 @@ router.route('/oversea_rate')
       form:
         weight: weight
         mail: mail
-        destination: dest
       headers:
         'Host': 'app1.hongkongpost.hk'
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0'

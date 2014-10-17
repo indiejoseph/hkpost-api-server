@@ -30,7 +30,7 @@ router.route('/oversea_rate')
     if errors.length
       return res.status(500).json { errors: errors }
 
-    key = "mail:#{ mail }dest:#{ dest },weight:#{ weight }"
+    key = "mail:#{ mail },dest:#{ dest },weight:#{ weight }"
 
     # check cache
     if cache.has key
