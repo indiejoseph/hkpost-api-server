@@ -13,7 +13,7 @@ describe 'API', ->
 
     beforeEach -> cache.reset()
 
-    it 'should get status 500 and erros message', (done) ->
+    it 'should get status 500 and errors message', (done) ->
       server
         .get "/api/v1/local"
         .expect 500
