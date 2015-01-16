@@ -1,18 +1,17 @@
 'use strict'
 
 router  = (require 'express').Router()
-LRU     = require 'lru-cache'
 config  = require '../config'
 request = require 'request'
 cheerio = require 'cheerio'
+LRU     = require 'lru-cache'
 cache   = LRU { maxAge: config.cache.maxAge }
 
 #routes
 router.route('/local')
   .get (req, res, next) ->
     # mail = ['letter_postcard', 'parcel']
-    weight = req.query.weight
-    mail = req.query.mail
+    { weight, mail } = req.query
 
     # validation
     errors = []
@@ -33,7 +32,7 @@ router.route('/local')
       return res.json cache.get(key)
 
     options =
-      url: config.hkpost.overseaRate
+      url: config.hkpost.local
       method: 'POST'
       form:
         weight: weight
@@ -65,7 +64,7 @@ router.route('/local')
       ]
 
       for selector in selectors
-        $input = $ '#' + selector
+        $input = $ "input[name=#{ selector }]"
         if $input.length
           prices[selector] = parseInt $input.val()
 

@@ -8,7 +8,7 @@ TODO
 說明 Doucmentation
 -----------------
 
-##### 國際郵件 International Mail
+##### 本地郵件 Local Mail
 **GET /api/v1/local**
 
 ##### Parameters
